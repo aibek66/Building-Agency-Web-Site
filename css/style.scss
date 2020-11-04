@@ -76,6 +76,23 @@ h3{
   font-size: 18px;
 }
 
+span.yellow-bg{
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 30px;
+  position: relative;
+  &::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #FFDD76;
+    z-index: -1;
+  }
+}
+
 .btn-primary{
   background-color: #212B31;
   color: #fff;
@@ -95,6 +112,7 @@ h3{
 .container{
   width: 80%;
   margin: 0 auto 140px;
+  text-align: center;
 }
 
 .row{
@@ -132,11 +150,11 @@ h3{
   flex-wrap: wrap;
   &-item{
     text-align: center;
-
     flex: 1;
+    flex-basis: 50%;
+    margin-bottom: 60px;
     @include thousandPixel{
       flex-basis: 100%;
-      margin-bottom: 50px;
     }
     .title{
       text-align: left;
@@ -272,24 +290,6 @@ header{
   }
   &-part2{
     margin: 140px 0;
-    .content{
-      span{
-        display: inline-block;
-        font-size: 20px;
-        margin-top: 30px;
-        position: relative;
-        &::after{
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 10px;
-          background-color: #FFDD76;
-          z-index: -1;
-        }
-      }
-    }
   }
 
   .brand-logoes{
@@ -301,6 +301,40 @@ header{
       padding: 0 10px;
       @include thousandPixel{
         width: 10%;
+      }
+    }
+  }
+}
+
+// Product Section
+.product{
+  .content{
+    &-item{
+      .title{
+        p{
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+      &.third-item{
+        @include thousandPixel{
+          order: 2;
+        }
+      }
+      &.fourth-item{
+        @include thousandPixel{
+          order: 1;
+        }
+      }
+      &.fifth-item{
+        @include thousandPixel{
+          order: 3;
+        }
+      }
+      &.six-item{
+        @include thousandPixel{
+          order: 4;
+        }
       }
     }
   }
