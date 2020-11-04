@@ -3,32 +3,7 @@
   padding: 0;
 
   font-family: 'Inter', sans-serif;
-}
-
-ul > li{
-  list-style: none;
-}
-
-a{
-  text-decoration: none;
-}
-
-button{
-  outline: none;
-  border: none; 
-}
-
-.btn-primary{
-  background-color: #212B31;
-  color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
-  border-radius: 4px;
-}
-
-// headings
-h1,h2{
-  color: #212B31;
+  font-weight: normal;
 }
 
 // media mexins
@@ -44,6 +19,141 @@ h1,h2{
     @content;
   }
 }
+
+@mixin phoneScreen{
+  @media screen and (max-width: 576px){
+    @content;
+  }
+}
+
+ul > li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+button{
+  outline: none;
+  border: none; 
+  cursor: pointer;
+}
+
+p{
+  color: #72787D;
+}
+
+// headings
+h1,h2,h3{
+  color: #212B31;
+}
+
+h1{
+  font-size: 48px;
+  line-height: 64px;
+  @include thousandPixel{
+    font-size: 40px;
+    line-height: 52px;
+  }
+  @include phoneScreen{
+    font-size: 30px;
+    line-height: 42px;
+  }
+}
+
+h2{
+  font-size: 32px;
+  line-height: 48px;
+  @include phoneScreen{
+    font-size: 24px;
+    line-height: 36px;
+  }
+  
+}
+
+h3{
+  font-size: 18px;
+}
+
+.btn-primary{
+  background-color: #212B31;
+  color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+}
+
+.btn-secondary{
+  color: #212B31;
+  background-color: #fff;
+  padding: 13px 25px;
+  border: 1px solid #DADEDF;
+  border-radius: 4px;
+}
+
+.container{
+  width: 80%;
+  margin: 0 auto 140px;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .item{
+    flex: 1 0 300px;
+    margin-bottom: 30px;
+    h3{
+      margin: 20px 0 10px;
+    }
+    p{
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+.title{
+  p{
+    margin-top: 16px;
+    font-size: 20px;
+    line-height: 32px;
+    @include phoneScreen{
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+}
+
+.content{
+  margin-top: 160px;
+  display: flex;
+  flex-wrap: wrap;
+  &-item{
+    text-align: center;
+
+    flex: 1;
+    @include thousandPixel{
+      flex-basis: 100%;
+      margin-bottom: 50px;
+    }
+    .title{
+      text-align: left;
+    }
+    img{
+      width: 100%;
+      object-fit: cover;
+      @include thousandPixel{
+        width: 70%;
+      }
+      @include phoneScreen{
+        width: 100%;
+      }
+    }
+  }
+}
+
 
 // Header Section
 
@@ -61,7 +171,6 @@ header{
       z-index: 10;
       a{
         color: #212B31;
-        font-weight: normal;
         font-size: 22px;
         margin-left: 10px;
       }
@@ -76,12 +185,13 @@ header{
         flex-direction: column;
         justify-content: center;
         
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 1);
         transition: .5s ease;
 
         position: absolute;
         top: 0;
         left: -100%;
+        
         &.active{
           left: 0;
         }
@@ -93,7 +203,7 @@ header{
         a{
           font-size: 15px;
           color: #72787D;
-          padding-left: 20px;
+          padding-right: 20px;
           &:hover{
             color: #036FC7;
           }
@@ -103,14 +213,12 @@ header{
         }
       }
       &-btn{
-        margin-left: 20px;
-        cursor: pointer;
+        font-size: 15px;
         @include largeScreen{
           display: none;
         }
         @include thousandPixel{
           display: block;
-          margin-left: 0;
         }
       }
     }
@@ -121,6 +229,78 @@ header{
       z-index: 10;
       @include thousandPixel{
         display: block;
+      }
+      
+    }
+  }
+}
+
+// Main Section
+
+.main{
+  margin-top: 70px;
+  text-align: center;
+  &-title{
+    margin-bottom: 80px;
+    &-btns{
+      margin-top: 30px;
+      .btn1{
+        padding: 13px 25px;
+        margin-right: 16px;
+      }
+    }
+  }
+  img{
+    width: 100%;
+    object-fit: cover;
+  }
+  .main-img2{
+    width: 80%;
+  }
+}
+
+// About us Section
+.about-us{
+  text-align: center;
+  &-part1{
+    margin-top: 140px;
+    img{
+      width: 100%;
+      object-fit: cover;
+      margin-top: 40px;
+    }
+  }
+  &-part2{
+    margin: 140px 0;
+    .content{
+      span{
+        display: inline-block;
+        font-size: 20px;
+        margin-top: 30px;
+        position: relative;
+        &::after{
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 10px;
+          background-color: #FFDD76;
+          z-index: -1;
+        }
+      }
+    }
+  }
+
+  .brand-logoes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    img{
+      flex-basis: 18%;
+      padding: 0 10px;
+      @include thousandPixel{
+        width: 10%;
       }
     }
   }
