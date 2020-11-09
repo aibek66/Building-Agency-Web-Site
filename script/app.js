@@ -6,8 +6,6 @@ const navbarMenu = document.querySelector('.navbar-menu');
 
 const NavbarMenuHandler = () => {
   navbarMenu.classList.toggle('active');
-  const body = document.querySelector('body');
-  body.classList.toggle('fixed');
 };
 
 menuIcon.addEventListener('click', NavbarMenuHandler);
