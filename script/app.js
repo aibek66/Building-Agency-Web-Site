@@ -12,9 +12,8 @@ const NavbarMenuHandler = () => {
 
 menuIcon.addEventListener('click', NavbarMenuHandler);
 
-// navigation navbar menu
+// navigate navbar menu
 const anchors = document.querySelector('header').querySelectorAll('a[href*="#"]');
-console.log(anchors);
 
 for(let anchor of anchors){
   anchor.addEventListener('click', (event) => {
